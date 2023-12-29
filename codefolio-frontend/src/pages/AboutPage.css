@@ -1,0 +1,12 @@
+.aboutpage {
+    padding: 1rem;
+}
+  
+.aboutpage h1 {
+    color: #343a40;
+}
+  
+.about-content {
+    margin-top: 1rem;
+    line-height: 1.5;
+}

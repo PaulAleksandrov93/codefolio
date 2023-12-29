@@ -1,0 +1,26 @@
+.contactpage {
+    padding: 1rem;
+}
+  
+.contactpage h1 {
+    color: #343a40;
+}
+  
+.contact-info {
+    margin-top: 1rem;
+}
+  
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+  
+.social-icons a {
+    color: #343a40;
+    font-size: 24px;
+    text-decoration: none;
+}
+  
+.social-icons a:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}

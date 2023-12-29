@@ -1,0 +1,19 @@
+.projectpage {
+    padding: 1rem;
+}
+  
+.projectpage h1 {
+    color: #343a40;
+}
+  
+.project-list {
+    margin-top: 1rem;
+}
+  
+.project-list div {
+    margin-bottom: 1rem;
+}
+  
+.project-list h2 {
+    color: #007bff;
+}
