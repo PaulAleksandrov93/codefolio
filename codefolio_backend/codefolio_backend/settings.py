@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qvx5d@s5p3mfg=eo-bn4_=h4k2dga=^!gr1c3wk@a1(!9pmjhz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -165,10 +165,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -181,16 +177,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 LOGGING = {
     'version': 1,

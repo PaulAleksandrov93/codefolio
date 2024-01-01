@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTelegram, faWhatsapp, faVk, faEnvelope } from '@fortawesome/free-brands-svg-icons';
+import { faTelegram, faWhatsapp, faVk } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css';
 
 const Footer = () => {
@@ -17,9 +17,9 @@ const Footer = () => {
         <a href="https://vk.com/your_vk" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faVk} />
         </a>
-        <a href="mailto:your@email.com" target="_blank" rel="noopener noreferrer">
+        {/* <a href="mailto:your@email.com" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faEnvelope} />
-        </a>
+        </a> */}
       </div>
     </footer>
   );
