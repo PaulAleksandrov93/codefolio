@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './ProjectPage.css';
 
 const ProjectPage = () => {
@@ -27,10 +28,21 @@ const ProjectPage = () => {
             <h2>{project.title}</h2>
             <p>{project.description}</p>
             <p>Статус: {project.status}</p>
-            <p>Технологии: {project.technologies.map(tech => tech.name).join(', ')}</p>
+            <p>Технологии: 
+              <div className="technologies">
+                {project.technologies.map(tech => (
+                  <div key={tech.id} className="technology">{tech.name}</div>
+                ))}
+              </div>
+            </p>
             <p>Репозиторий: <a href={project.repository_link} target="_blank" rel="noopener noreferrer">{project.repository_link}</a></p>
             <p>Ссылка: <a href={project.live_link} target="_blank" rel="noopener noreferrer">{project.live_link}</a></p>
             <img src={project.image} alt={project.title} />
+            <div className="project-link">
+              <Link to={`/projects/${project.id}`}>
+                Перейти к проекту
+              </Link>
+            </div>
           </div>
         ))}
       </div>
