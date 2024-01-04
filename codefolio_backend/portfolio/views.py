@@ -3,13 +3,14 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Technology, Project, Profile, Skill, Language
+from .models import Technology, Project, Profile, Skill, Language, ProjectImage
 from .serializers import (
     TechnologySerializer,
     ProjectSerializer,
     ProfileSerializer,
     SkillSerializer,
     LanguageSerializer,
+    ProjectImageSerializer,
 )
 
 @api_view(['GET'])
@@ -42,6 +43,17 @@ def project_detail(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     serializer = ProjectSerializer(project)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def project_images(request, pk):
+    try:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    images = ProjectImage.objects.filter(project=project)
+    serializer = ProjectImageSerializer(images, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])

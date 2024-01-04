@@ -1,5 +1,3 @@
-
-
 from django.db import models
 
 class Technology(models.Model):
@@ -12,7 +10,6 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     technologies = models.ManyToManyField(Technology)
-    image = models.ImageField(upload_to='project_images/')
     repository_link = models.URLField()
     live_link = models.URLField()
 
@@ -31,6 +28,13 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='project_images/')
+
+    def __str__(self):
+        return f"Image for {self.project.title}"
+
 class Profile(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -46,7 +50,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-    
+
 class Skill(models.Model):
     name = models.CharField(max_length=50)
 

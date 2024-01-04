@@ -8,13 +8,13 @@ const Footer = () => {
     <footer>
       <p>&copy; 2023 Codefolio</p>
       <div className="social-icons">
-        <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/AleksandrovPavel93" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faTelegram} />
         </a>
-        <a href="https://wa.me/your_whatsapp" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/79321230823" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faWhatsapp} />
         </a>
-        <a href="https://vk.com/your_vk" target="_blank" rel="noopener noreferrer">
+        <a href="https://vk.com/id235383670" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faVk} />
         </a>
         {/* <a href="mailto:your@email.com" target="_blank" rel="noopener noreferrer">

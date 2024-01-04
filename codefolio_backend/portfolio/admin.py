@@ -1,7 +1,6 @@
 
-
 from django.contrib import admin
-from .models import Technology, Project, Profile, Skill, Language
+from .models import Technology, Project, Profile, Skill, Language, ProjectImage
 
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
@@ -24,3 +23,7 @@ class SkillAdmin(admin.ModelAdmin):
 @admin.register(Language)
 class LanguageAdmin(admin.ModelAdmin):
     list_display = ('name',)
+
+@admin.register(ProjectImage)
+class ProjectImageAdmin(admin.ModelAdmin):
+    list_display = ('project', 'image')

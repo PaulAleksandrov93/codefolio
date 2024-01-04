@@ -1,15 +1,19 @@
-
-
 from rest_framework import serializers
-from .models import Technology, Project, Profile, Skill, Language
+from .models import Technology, Project, Profile, Skill, Language, ProjectImage
 
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = Technology
         fields = '__all__'
 
+class ProjectImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProjectImage
+        fields = ('image',)
+
 class ProjectSerializer(serializers.ModelSerializer):
     technologies = TechnologySerializer(many=True)
+    images = ProjectImageSerializer(many=True, read_only=True)
 
     class Meta:
         model = Project
