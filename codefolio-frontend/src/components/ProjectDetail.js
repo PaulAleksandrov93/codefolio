@@ -8,6 +8,7 @@ const ProjectDetail = () => {
   const [project, setProject] = useState(null);
   const [modalImages, setModalImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchProjectData = async () => {
@@ -33,10 +34,12 @@ const ProjectDetail = () => {
   const handleImageClick = (imageUrl, index) => {
     setModalImages(project.images.map(image => `http://localhost:8000${image.image}`));
     setCurrentImageIndex(index);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setModalImages([]);
+    setIsModalOpen(false);
   };
 
   const handlePrevClick = () => {
@@ -95,14 +98,14 @@ const ProjectDetail = () => {
         )}
       </div>
 
-      {modalImages.length > 0 && (
+      {isModalOpen && modalImages.length > 0 && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={closeModal}>&times;</span>
             <img
               src={modalImages[currentImageIndex]}
               alt=""
-              style={{ width: "80%", height: "80%", display: "block", margin: "auto" }}
+              style={{ width: "100%", height: "100%", display: "block", margin: "auto" }}
             />
             {modalImages.length > 1 && (
               <>

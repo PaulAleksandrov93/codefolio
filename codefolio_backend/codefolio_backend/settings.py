@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'portfolio',
+    'contact',
     'corsheaders',
 ]
 
@@ -183,6 +184,19 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'aleksandrov.pavel93@mail.ru'
+EMAIL_HOST_PASSWORD = 'pZxSJvHPrwU0uN2pv2uM'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+SERVER_EMAIL = 'aleksandrov.pavel93@mail.ru'
+DEFAULT_FROM_EMAIL = 'aleksandrov.pavel93@mail.ru'
+
+# Убедитесь, что используется стандартный SMTP бэкенд
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 LOGGING = {
     'version': 1,
