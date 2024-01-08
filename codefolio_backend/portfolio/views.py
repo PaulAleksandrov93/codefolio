@@ -3,7 +3,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Technology, Project, Profile, Skill, Language, ProjectImage
+from .models import Technology, Project, Profile, Skill, Language, ProjectImage, Certificate
 from .serializers import (
     TechnologySerializer,
     ProjectSerializer,
@@ -11,6 +11,7 @@ from .serializers import (
     SkillSerializer,
     LanguageSerializer,
     ProjectImageSerializer,
+    CertificateSerializer,
 )
 
 @api_view(['GET'])
@@ -102,4 +103,20 @@ def language_detail(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     serializer = LanguageSerializer(language)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def certificate_list(request):
+    certificates = Certificate.objects.all()
+    serializer = CertificateSerializer(certificates, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def certificate_detail(request, pk):
+    try:
+        certificate = Certificate.objects.get(pk=pk)
+    except Certificate.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    serializer = CertificateSerializer(certificate)
     return Response(serializer.data)

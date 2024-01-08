@@ -37,9 +37,9 @@ const ProjectPage = () => {
             </p>
             <p>Репозиторий: <a href={project.repository_link} target="_blank" rel="noopener noreferrer">{project.repository_link}</a></p>
             <p>Ссылка: <a href={project.live_link} target="_blank" rel="noopener noreferrer">{project.live_link}</a></p>
-            {project.images.map((image, index) => (
-              <img key={index} src={`http://localhost:8000${image.image}`} alt={project.title} />
-            ))}
+            {project.images.length > 0 && (
+              <img src={`http://localhost:8000${project.images[0].image}`} alt={project.title} />
+            )}
             <div className="project-link">
               <Link to={`/projects/${project.id}`}>
                 Перейти к проекту

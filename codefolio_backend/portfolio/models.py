@@ -43,10 +43,10 @@ class Profile(models.Model):
     resume_link = models.URLField(blank=True, null=True)
     linkedin_profile = models.URLField(blank=True, null=True, verbose_name="LinkedIn профиль")
     github_profile = models.URLField(blank=True, null=True, verbose_name="GitHub профиль")
-    twitter_profile = models.URLField(blank=True, null=True, verbose_name="Twitter профиль")
     telegram_username = models.CharField(max_length=50, blank=True, null=True, verbose_name="Telegram")
     skills = models.ManyToManyField('Skill', blank=True, verbose_name="Навыки")
     languages = models.ManyToManyField('Language', blank=True, verbose_name="Языки программирования")
+    certificates = models.ManyToManyField('Certificate', blank=True, verbose_name="Сертификаты")
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -62,3 +62,12 @@ class Language(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Certificate(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to='certificates/', null=True, blank=True)
+    url = models.URLField(blank=True, null=True, verbose_name="Ссылка на сертификат")
+
+    def __str__(self):
+        return self.title

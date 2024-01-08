@@ -12,6 +12,8 @@ from .views import (
     skill_detail,
     language_list,
     language_detail,
+    certificate_list,
+    certificate_detail,
 )
 
 urlpatterns = [
@@ -30,4 +32,7 @@ urlpatterns = [
     
     path('languages/', language_list, name='language-list'),
     path('languages/<int:pk>/', language_detail, name='language-detail'),
+    
+    path('certificates/', certificate_list, name='certificate-list'),
+    path('certificates/<int:pk>/', certificate_detail, name='certificate-detail'),
 ]
