@@ -194,7 +194,7 @@ EMAIL_USE_SSL = False
 SERVER_EMAIL = 'aleksandrov.pavel93@mail.ru'
 DEFAULT_FROM_EMAIL = 'aleksandrov.pavel93@mail.ru'
 
-# Убедитесь, что используется стандартный SMTP бэкенд
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
